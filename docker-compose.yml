@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: devpulse
+      POSTGRES_PASSWORD: devpulse
+      POSTGRES_DB: devpulse
+    ports:
+      - "5432:5432"
+
+  backend-java:
+    build: ./backend-java
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/devpulse
+      SPRING_DATASOURCE_USERNAME: devpulse
+      SPRING_DATASOURCE_PASSWORD: devpulse
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+  worker-python:
+    build: ./worker-python
+    environment:
+      BACKEND_BASE: http://backend-java:8080
+    ports:
+      - "8000:8000"
+    depends_on:
+      - backend-java
+
+  frontend-react:
+    build: ./frontend-react
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend-java

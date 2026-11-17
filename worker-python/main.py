@@ -12,7 +12,7 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-BACKEND_BASE = os.environ.get("BACKEND_BASE", "http://localhost:8080")
+BACKEND_BASE = os.environ.get("BACKEND_BASE", os.environ.get("BACKEND_URL", "http://localhost:8080"))
 TIMEOUT = float(os.environ.get("CHECK_TIMEOUT", "5"))
 REQUEST_TIMEOUT = float(os.environ.get("REQUEST_TIMEOUT", "10"))
 

@@ -31,7 +31,21 @@ graph TD
 
 ---
 
-## 🚀 Getting Started
+## 🐳 Enterprise Deployment (Docker Compose)
+
+You can run the entire system (PostgreSQL, Java Backend, Python Worker, and React Frontend) with a single command:
+
+```bash
+docker compose up --build
+```
+
+- **Frontend Dashboard**: `http://localhost:5173`
+- **Java Backend API**: `http://localhost:8080`
+- **PostgreSQL Database**: `localhost:5432`
+
+---
+
+## 🚀 Getting Started (Manual / Local Development)
 
 ### 1. Java Backend (Port 8080)
 ```bash

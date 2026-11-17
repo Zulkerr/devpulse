@@ -27,6 +27,16 @@ Das Projekt besteht aus drei entkoppelten Services, die über REST-APIs kommuniz
 - Build: `npm run build` (wird via `tsc -b && vite build` geprüft).
 - Features: Live-Übersicht Services, Hinzufügen von Services, Health-Check-Trigger (ruft Worker `/check-all`), Incident-Management (Ansicht & Schließen).
 
+## Docker Enterprise Deployment
+- Starte das gesamte System mit allen 4 Containern (Postgres, Backend, Worker, Frontend):
+  ```bash
+  docker compose up --build
+  ```
+- Services:
+  - Frontend: `http://localhost:5173` (Nginx auf Port 80 im Container)
+  - Backend: `http://localhost:8080`
+  - Postgres: `localhost:5432`
+
 ## Service-Details
 
 ### 1. Backend (Java)
