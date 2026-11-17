@@ -1,0 +1,21 @@
+# Maven
+/backend-java/target/
+.mvn/wrapper/.apache-maven/
+
+# Python
+/worker-python/.venv/
+/worker-python/__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node / Vite
+/frontend-react/node_modules/
+/frontend-react/dist/
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
